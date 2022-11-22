@@ -1,32 +1,52 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+     <Tou></Tou>
+     <Shen :parent="todos"></Shen>
+        <Wei :shuliang="todo"></Wei>
+
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Tou from './tou.vue'
+import Shen from './shenti.vue'
+import Wei from './weibu.vue'
+  export default {
+    props: {
 
-#nav {
-  padding: 30px;
+    },
+    components: {
+      Tou,
+      Shen,
+      Wei,
+    },
+    data(){
+      return {
+        todos:[
+                 {cc:'吃饭',completed:false},
+                 {cc:'睡觉',completed:false},
+                 {cc:'打游戏',completed:true},
+               ],
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+         todo:''
+         
+          }
+      
+       },
+    methods: {
+        
+    },
+    watch:{
+       todos:{
+        handler(){
+           this.todo=this.todos.length
+        },
+        immediate:true
+       }
     }
   }
-}
+</script>
+
+<style>
+
 </style>
