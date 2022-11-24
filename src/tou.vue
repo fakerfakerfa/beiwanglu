@@ -3,10 +3,10 @@
         <section id="todoapp" class="todoapp">
         <header class="header">
             <h1>todolist</h1>
-            <input placeholder="添加任务项" @keyup.enter="addTodo" class="new-todo" v-model="int.cc">
+            <input placeholder="添加任务项" @keyup.enter="addTodo" class="new-todo" v-model="aa">
         </header>
         <section class="main">
-            <input v-model="toggleStat" id="toggle-all" type="checkbox" class="toggle-all">
+            <input  id="toggle-all" type="checkbox" class="toggle-all">
             <label for="toggle-all">Mark all as complete</label>
             </section>
         </section>
@@ -14,28 +14,27 @@
 </template>
 
 <script>
-import bus from './eventBus.js'
-    export default {
-        props: {
 
-        },
+    export default {
+        props: ['todos'],
         components: {
       
         },
         data(){  
             return {
-                int:{
-                     cc:'',
-                     completed:false,
-                },
+            aa:''
 
             }
         },
         methods: {
            addTodo(){
-            
-            bus.$emit('share',this.int)
-           
+             
+           let result={
+			cc:this.aa,
+			completed:false
+		   }
+           this.todos.unshift(result)
+		   this.aa=''
            }
         }
     }

@@ -9,11 +9,11 @@
                     <div class="view">
                         <input type="checkbox" class="toggle" v-model="item.completed">
                       
-                        <label @dblclick="currentEditing = item">{{item.cc}}</label>
+                        <label>{{item.cc}}</label>
                         <button class="destroy" @click="removeTodo(index)"></button>  <!-- 删除按钮 -->
                       
                     </div>
-                    <input class="edit" @keyup.enter="saveEdit(item, index, $event)" :value="item.title" @keyup.esc="currentEditing = null">
+                   
                 </li>
             </ul>
         </section>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import bus from './eventBus.js'
+
     export default {
          props: [
       'parent',
@@ -42,11 +42,7 @@ import bus from './eventBus.js'
             },
         },
         
-        created(){
-            bus.$on('share',value =>{
-                 this.parent.push(value)
-            })
-        }
+       
     }
 </script>
 

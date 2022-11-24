@@ -1,6 +1,6 @@
 <template>
   <div>
-     <Tou></Tou>
+     <Tou  :todos="todos"></Tou>
      <Shen :parent="todos"></Shen>
         <Wei :shuliang="todo"></Wei>
 
@@ -11,6 +11,7 @@
 import Tou from './tou.vue'
 import Shen from './shenti.vue'
 import Wei from './weibu.vue'
+
   export default {
     props: {
 
@@ -34,7 +35,7 @@ import Wei from './weibu.vue'
       
        },
     methods: {
-        
+       
     },
     watch:{
        todos:{
@@ -43,7 +44,8 @@ import Wei from './weibu.vue'
         },
         immediate:true
        }
-    }
+    },
+   
   }
 </script>
 
